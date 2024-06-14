@@ -67,7 +67,7 @@ The ingress block within the `values_gateway.yaml` file is crucial for configuri
 
   - **servicePort**: Specifies the port of the service within the Kubernetes cluster. This port is where the ingress routes the traffic it receives. The service port names like `web`, `hvp`, `legacy-api`, `api`, and `configure-app` correspond to different functionalities within the Akeyless Gateway, such as the web interface, High Volume Proxy, legacy API, new version API, and configuration app, respectively.
 
-  - **hostname**: Defines the external hostname through which the service can be accessed. For instance, `ui-sandbox.akeyless.1trust.app` for the web interface or `api-v2-sandbox.akeyless.1trust.app` for the new version API. These hostnames are crucial for directing external traffic to the correct service within the Kubernetes cluster.
+  - **hostname**: Defines the external hostname through which the service can be accessed. For instance, `ui-sandbox.akeyless.dev.app.app` for the web interface or `api-v2-sandbox.akeyless.dev.app` for the new version API. These hostnames are crucial for directing external traffic to the correct service within the Kubernetes cluster.
 
   - **path**: (Optional) Specifies the URL path that must be matched for the rule to apply. This is useful for more granular routing within a service or when hosting multiple services under the same hostname.
 
@@ -79,19 +79,19 @@ The ingress block within the `values_gateway.yaml` file is crucial for configuri
     ```yaml
     rules:
     - servicePort: web
-      hostname: "ui-sandbox.akeyless.1trust.app"
+      hostname: "ui-sandbox.akeyless.dev.app"
       path: "/"
     - servicePort: hvp
-      hostname: "hvp-sandbox.akeyless.1trust.app"
+      hostname: "hvp-sandbox.akeyless.dev.app"
       path: "/"
     - servicePort: legacy-api
-      hostname: "api-sandbox.akeyless.1trust.app"
+      hostname: "api-sandbox.akeyless.dev.app"
       path: "/v1/"
     - servicePort: api
-      hostname: "api-v2-sandbox.akeyless.1trust.app"
+      hostname: "api-v2-sandbox.akeyless.dev.app"
       path: "/v2/"
     - servicePort: configure-app
-      hostname: "conf-sandbox.akeyless.1trust.app"
+      hostname: "conf-sandbox.akeyless.dev.app"
       path: "/configure/"
     ```
 
@@ -153,7 +153,7 @@ The `values_sra.yaml` file contains a comprehensive list of user-supplied values
 3. **apiGatewayCert**: This section allows specifying the Kubernetes secret that contains the TLS certificates for the API Gateway. If you're not using custom certificates, leave `tlsCertsSecretName` as `null`.
 
 4. **apiGatewayURL**: The URL of the Akeyless API Gateway. This is pre-configured to `https://rest.akeyless.io`.
-    - <span style="color:green">**Note**: This is the 8080 Port that is configured for the Gateway Helm Values file:</span> *api-sandbox.akeyless.1trust.app*
+    - <span style="color:green">**Note**: This is the 8080 Port that is configured for the Gateway Helm Values file:</span> *api-sandbox.akeyless.dev.app*
 
 5. **clusterName**: A unique name for your cluster, such as `sra-sandbox`, to identify your deployment.
 
